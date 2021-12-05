@@ -45,11 +45,11 @@ $rest_price = 0;
 <?php
 require_once('../includes/header.php');
  ?>
-            <!--------------------------------------- START Container---------------------------------->
+    <!--------------------------------------- START Container---------------------------------->
 
-            <main class="dash-content">
-                <div class="container-fluid">
-            <!--------------------------------------- START print message ---------------------------------->
+    <main class="dash-content">
+    <div class="container-fluid">
+    <!--------------------------------------- START print message ---------------------------------->
 
 <!--------------------------------------- START from ---------------------------------->
                     

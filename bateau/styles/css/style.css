@@ -247,11 +247,15 @@ margin-bottom:10px;
   text-decoration: none;
 }
 
-
 .tab .bt button{
-
  width: 100px;
+}
 
+.td_payer{
+  color: rgb(99, 197, 0);
+}
+.td_non_payer{
+  color: red;
 }
 
 .bien {
