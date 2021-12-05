@@ -95,14 +95,18 @@ require_once('../includes/header.php');
        ?>
 
 <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label class="font-weight-bold">Recherche par série de bateau</label>
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter serie de boat ">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label class="font-weight-bold">Recherche par le nom de sup</label>
-      
      <input type="text" id="inputSup" onkeyup="SearchBySup()" placeholder="Enter le Nom de sup ">
+    </div>
+    <div class="form-group col-md-4">
+      <label class="font-weight-bold">Recherche par paiement</label>
+     <input id="payment" class="form-control" onkeyup="SearchByPayment()">
+     
     </div>
   </div>
 
@@ -121,6 +125,9 @@ require_once('../includes/header.php');
                 <th scope="col">prix final</th>
                 <th scope="col">rest a payer</th>
                 <th scope="col">status</th>
+                <th scope="col">paiement</th>
+                <th scope="col">action</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -131,12 +138,9 @@ require_once('../includes/header.php');
                 foreach($dataBoat as $rowBoat){ 
 
                     if($rowBoat['id-boat'] == $row['id-boat']){
-                      
-                    
                     ?> 
                         <td><?php echo $rowBoat['serie-boat']  ?></td>
                     <?php
-
                     }
                 ?> 
 
@@ -151,8 +155,6 @@ require_once('../includes/header.php');
                 
                 ?> 
                     <td><?php echo $rowSup['name-sup']  ?></td>
-        
-
                 <?php }  }?>
 
                 <td><?php echo $row['avance'] ?>DH</td>
@@ -160,6 +162,13 @@ require_once('../includes/header.php');
                 <td><?php echo $row['remise']?> DH </td>
                 <td><?php echo $row['reste'] ?> DH</td>
                 <td><?php echo $row['status'] ?></td>
+                <?php if($row['reste'] == 0){?>
+                 <td class=td_payer>payer</td>
+                 <?php } else { ?>
+                 <td class=td_non_payer>non payer</td>
+                 <?php } ?>
+                <td><button class="btn btn-info  mx-auto"><a href="imprimerFacture.php?id-mission=<?php echo $row['id-mission'] ?>">Afficher</a></button>
+                </td>
 
                 </tr>
                 <?php endforeach; ?>
@@ -195,12 +204,7 @@ require_once('../includes/header.php');
         
        <?php }?>
 
-        
-
-
-
      <!--------------------------------------- END  show all users and admins ---------------------------------->
-
 
                 </div>
             </main>

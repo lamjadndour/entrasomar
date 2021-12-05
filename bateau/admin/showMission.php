@@ -138,8 +138,6 @@ require_once('../includes/header.php');
                 <td><?php echo $row['date-end']  ?></td>
                 <td> <button class="btn btn-success mx-auto"><a href="editMission.php?id-mission=<?php echo $row['id-mission'] ?>">Modifier</a></button>
                 <button type='button' class="btn btn-danger mx-auto"><a onclick="supprMiss(event)" class='<?php echo $row['id-mission'] ?>' data-toggle="modal" data-target="#exampleModal">supprimer</a></button>
-                <button class="btn btn-info mx-auto"><a href="showTache.php?id-mission=<?php echo $row['id-mission']?>&id-boat=<?php echo $row['id-boat']?> "> Details</a></button>
-                <button class="btn btn-warning mx-auto"><a href="showFacture.php?id-mission=<?php echo $row['id-mission']?>"> facture</a></button>
                 </td>
 
                 </tr>
