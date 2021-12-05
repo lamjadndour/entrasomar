@@ -1,0 +1,435 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+/* start login styles*/
+.cont {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #132E62;
+    background-repeat: no-repeat
+}
+
+.card0 {
+    border-radius: 28px;
+   
+   
+}
+
+.card2 {
+    border-radius: 28px;
+   
+   
+}
+
+
+.logo {
+width: 204px;
+height: 202px;
+margin-bottom: 18px;
+margin-left: 35px;
+}
+
+.image {
+    width: 896px;
+    height: 493px;
+    overflow: hidden;
+}
+
+
+.text-sm {
+    font-size: 14px !important
+}
+
+::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    font-size: 11px
+
+}
+
+.btn-blue {
+    background-color: #1A237E !important;
+    width: 150px;
+    color: white !important;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+@media screen and (max-width: 991px) {
+
+  .card0 {
+    
+    margin-top: 3px;
+}
+    .logo {
+        margin-left: 0px
+    }
+
+    .image {
+        width: 0;
+        height: 0
+    }
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+}
+ 
+
+         /* --------------------------------- End login styles------------------------------------------------*/
+
+      /*------------------------------------------ start alert  styles----------------------------------------------*/
+
+ .messages{
+
+    text-align: center;
+    width: 50%;
+    margin:auto;
+    color: black;
+    font-size: 20px;
+ }
+  /*------------------------------------------------------------ End alert  styles -------------------------------------*/
+
+
+
+
+ /*------------------------------------------------------ start dashboard form  styles---------------------------*/
+
+
+.isnertPatient{
+margin-top: 100px;
+
+
+}
+.isnertPatient label{
+color: red;
+display: block;
+text-align: center;
+
+
+}
+
+
+
+ /*------------------------------------------------------ End dashboard form  styles---------------------------*/
+
+
+  /*------------------------------------------------------ Start style button add info---------------------------*/
+
+.add a{
+  color: white !important ;
+    text-decoration: none;
+
+}
+
+.add :hover{
+  color: white ;
+  text-decoration: none;
+
+}
+.tachbtn{
+  color: white !important ;
+  text-decoration: none;
+}
+.tachbtn :hover{
+  color: white ;
+  text-decoration: none;
+}
+
+  /*----------------- Start style card Total---------------------------*/
+.total {
+  width: 100%;
+  background-color: red;
+}
+.productbox {
+  background-color:#ffffff;
+  margin-left: 20px;
+  padding:10px;
+
+margin-bottom:10px;
+-webkit-box-shadow: 0 8px 6px -6px  #999;
+   -moz-box-shadow: 0 8px 6px -6px  #999;
+        box-shadow: 0 8px 6px -6px #999;
+}
+
+.producttitle {
+  font-weight:bold;
+  padding:5px 0 5px 0;
+}
+
+.productprice {
+  border-top:1px solid #dadada;
+  padding-top:5px;
+}
+
+.pricetext {
+  font-weight:bold;
+  font-size:1.4em;
+  
+}
+  /*----------------- END style card Total---------------------------*/
+
+
+
+  /*------------------------------------------------------ END style button add info---------------------------*/
+
+
+
+  /*------------------------------------------------------ Start hrefs and buttons styles in the table---------------------------*/
+
+.table a {
+
+  color: white ;
+  text-decoration: none;
+}
+
+
+.tab .bt button{
+
+ width: 100px;
+
+}
+
+.bien {
+  /* Fallback: Set a background color. */
+  background-color: #CA4246;
+  
+  /* Create the gradient. */
+   background-image: linear-gradient(
+        45deg,
+        #CA4246 16.666%, 
+        #E16541 16.666%, 
+        #E16541 33.333%, 
+        #F18F43 33.333%, 
+        #F18F43 50%, 
+        #8B9862 50%, 
+        #8B9862 66.666%, 
+        #476098 66.666%, 
+        #476098 83.333%, 
+        #A7489B 83.333%);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  
+  /* Animate the text when loading the element. */
+    /* This animates it on page load and when hovering out. */
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+
+}
+
+.bien:hover{
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+    0% {
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-simple-animation {
+    0% {
+        background-size: 100%;
+    }
+    80% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 650%;
+    }
+}
+  
+
+
+
+
+h3 {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: normal;
+  font-size: 4em;
+  text-align: center;
+  margin-bottom: 0;
+  margin-bottom: -0.25em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  width: 700px;
+}
+
+
+  /*------------------------------------------------------ End hrefs  styles---------------------------*/
+
+
+
+
+  /*------------------------------------------------------ Start Media Query---------------------------*/
+
+
+@media screen and (max-width: 500px) {  /*Table show info*/
+  
+  
+  .tab thead {
+    border: none;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+  
+  .tab tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  .tab td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 17px;
+    text-align: right;
+    font-weight: bold;
+
+
+  }
+  
+  .tab td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+     color: white;
+     background:black;
+     width: 150px;
+    text-align: center;
+    margin-right:3px;
+  }
+  
+  .tab td:last-child {
+    border-bottom: 0;
+  }
+   
+   .tab .bt button{
+
+ display: inline;
+ width: 20%;
+
+}
+
+}
+
+@media (max-width: 500px) {   
+
+.table tr td button {  /*Normales tables*/
+
+ display: block;
+ width: 100%;
+}
+.add {           /* Botton add new info*/
+  margin: auto;
+
+
+ 
+}
+}
+
+
+@media print {
+
+  body *{
+    visibility: hidden;
+  }
+  .print-tables, .print-tables *{
+    visibility: visible;
+  }
+}
+
+  /*------------------------------------------------------ END Media Query---------------------------*/
