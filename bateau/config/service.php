@@ -14,23 +14,25 @@ class Service {
       if(isset($_POST['send'])){
       
         $name_service = $_POST['name_service'];
-        $price_service = $_POST['price_service'];
+        // $price_service = $_POST['price_service'];
         
-      if(empty($name_service) && empty($price_service) ){
-      $error= "Replir toutes les champs";
-      header("Location:addService.php?error=$error");
+      // if(empty($name_service)){
+      // $error= "Replir toutes les champs";
+      // header("Location:addService.php?error=$error");
 
-      }elseif( empty($name_service) ){
-      $error= "Entrer le nom de service";
+      // }
+      if( empty($name_service) ){
+      $error= "Entrer le nom de Categorie";
       header("Location:addService.php?error=$error");
-      }elseif(empty($price_service)){
-              $error= "Entrer prix de service";
-              header("Location:addService.php?error=$error");
+      // }elseif(empty($price_service)){
+      //         $error= "Entrer prix de service";
+      //         header("Location:addService.php?error=$error");
 
-       }else{
+      }
+      else{
             
-         $query = $db->connection->prepare("INSERT INTO `service` (`id-service`, `name-service`, `price-service`) VALUES (NULL,?,?)");
-         $stm = $query->execute(array($name_service, $price_service));
+         $query = $db->connection->prepare("INSERT INTO `service` (`id-service`, `name-service`) VALUES (NULL,?)");
+         $stm = $query->execute(array($name_service));
          if($stm){
           $error= "Save it";
                 header("Location:addService.php?error=$error");
@@ -76,10 +78,10 @@ function displayAllService(){
       
      if(isset($_POST['send'])){
        $name_service = $_POST['name_service'];
-       $price_service = $_POST['price_service'];
+      //  $price_service = $_POST['price_service'];
        $id_service = $_POST['id_service'];
-         $stmt = $db->connection->prepare("UPDATE `service` SET `name-service`= ?,`price-service`= ? WHERE `service`.`id-service`= ? ");
-          $res =$stmt->execute(array($name_service,$price_service,$id_service));
+         $stmt = $db->connection->prepare("UPDATE `service` SET `name-service`= ? WHERE `service`.`id-service`= ? ");
+          $res =$stmt->execute(array($name_service,$id_service));
          if($res){
       // return $error['success'] = "insert success";
            header("location: showService.php");

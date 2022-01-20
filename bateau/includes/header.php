@@ -53,6 +53,18 @@
                     </div>
                     </div>
 
+                    <!-- Start Superviseur  -->
+                    <div class="dash-nav-dropdown ">
+                    <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
+                    <i class="fas fa-users"></i> Superviseur </a>
+                        <div class="dash-nav-dropdown-menu">
+                          <a href="addSup.php" class="dash-nav-dropdown-item">Ajouté Superviseur</a>
+                          <a href="showSup.php" class="dash-nav-dropdown-item">Afficher Superviseur</a>
+                        <!-- <a href="searchSup.php" class="dash-nav-dropdown-item">Chercher Superviseur</a> -->
+
+                    </div>
+                    <!-- End Superviseur  -->
+
                      <!-- Start Plangeur  -->
                         <div class="dash-nav-dropdown ">
                         <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
@@ -77,26 +89,15 @@
                     </div>
                     </div>
 
-                <!-- Start Update Taoufiq -->
-                <div class="dash-nav-dropdown ">
-                <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
-                <i class="fas fa-users"></i> Superviseur </a>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="addSup.php" class="dash-nav-dropdown-item">Ajouté Superviseur</a>
-                        <a href="showSup.php" class="dash-nav-dropdown-item">Afficher Superviseur</a>
-                        <!-- <a href="searchSup.php" class="dash-nav-dropdown-item">Chercher Superviseur</a> -->
-
-                    </div>
-
                     <div class="dash-nav-dropdown ">
                 <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                 <i class="fas fa-dolly-flatbed"></i> Service </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="addService.php" class="dash-nav-dropdown-item">Ajouté Service</a>
-                        <a href="showService.php" class="dash-nav-dropdown-item">Afficher Service</a>
+                        <a href="addService.php" class="dash-nav-dropdown-item">Ajouté Categorie</a>
+                        <a href="showService.php" class="dash-nav-dropdown-item">Afficher Categorie</a>
                     </div>
                 </div>
-                <!-- End Update Taoufiq -->
+               
 
                 <div class="dash-nav-dropdown ">
                     <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">

@@ -96,15 +96,15 @@ require_once('../includes/header.php');
 
 <div class="form-row">
     <div class="form-group col-md-4">
-      <label class="font-weight-bold">Recherche par série de bateau</label>
+      <label class="font-weight-bold">Recherche par nom de Bateau</label>
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter serie de boat ">
     </div>
     <div class="form-group col-md-4">
-      <label class="font-weight-bold">Recherche par le nom de sup</label>
+      <label class="font-weight-bold">Recherche par le nom de Représentent</label>
      <input type="text" id="inputSup" onkeyup="SearchBySup()" placeholder="Enter le Nom de sup ">
     </div>
     <div class="form-group col-md-4">
-      <label class="font-weight-bold">Recherche par paiement</label>
+      <label class="font-weight-bold">Recherche par Status</label>
      <input id="payment" class="form-control" onkeyup="SearchByPayment()">
      
     </div>
@@ -118,14 +118,13 @@ require_once('../includes/header.php');
                 <tr class="table-success">
                 <tr class="table-success">
     
-                <th scope="col">Série boat</th>
+                <th scope="col">nom de Bateau</th>
                 <th scope="col">nom sup</th>
                 <th scope="col">avance</th>
                 <th scope="col">total</th>
                 <th scope="col">prix final</th>
                 <th scope="col">rest a payer</th>
                 <th scope="col">status</th>
-                <th scope="col">paiement</th>
                 <th scope="col">action</th>
 
                 </tr>
@@ -139,7 +138,7 @@ require_once('../includes/header.php');
 
                     if($rowBoat['id-boat'] == $row['id-boat']){
                     ?> 
-                        <td><?php echo $rowBoat['serie-boat']  ?></td>
+                        <td><?php echo $rowBoat['name-boat']  ?></td>
                     <?php
                     }
                 ?> 
@@ -161,7 +160,6 @@ require_once('../includes/header.php');
                 <td><?php echo $row['total'] ?> DH</td>
                 <td><?php echo $row['remise']?> DH </td>
                 <td><?php echo $row['reste'] ?> DH</td>
-                <td><?php echo $row['status'] ?></td>
                 <?php if($row['reste'] == 0){?>
                  <td class=td_payer>payer</td>
                  <?php } else { ?>

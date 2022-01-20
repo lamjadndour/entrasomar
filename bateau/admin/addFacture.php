@@ -121,7 +121,7 @@ require_once('../includes/header.php');
 
     <div class="form-group col-md-6">
       <label >Prix final</label>
-      <input type="text" name="remise" id="remise" class="form-control" placeholder="Entrer le Prix final" ">
+      <input type="text" name="remise" id="remise" class="form-control" placeholder="Entrer le Prix final" value="<?php echo $_GET['total']?>">
    </div>
 
   </div>

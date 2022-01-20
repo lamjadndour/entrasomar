@@ -25,18 +25,12 @@ $service = new Service();
 ?>
 
 
-
-
-
-
-
-
 <!doctype html>
 <html lang="en">
 <?php
 require_once('../includes/header.php');
  ?>
-                                     <!--------------------------------------- START Container---------------------------------->
+            <!--------------------------------------- START Container---------------------------------->
 
             <main class="dash-content">
                 <div class="container-fluid">
@@ -69,24 +63,23 @@ require_once('../includes/header.php');
             ?>
 
 
-                      <!--------------------------------------- END print message ---------------------------------->
+          <!--------------------------------------- END print message ---------------------------------->
 
 
-
-                         <!--------------------------------------- START from ---------------------------------->
+<!--------------------------------------- START from ---------------------------------->
                     
-<h3 class="text-center mb-5 bien"> Ajouter Service  </h3>
+<h3 class="text-center mb-5 bien"> Ajouter Categorie  </h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="isnertPatient " >        
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <label >name service</label>
-      <input type="text" name="name_service" class="form-control" placeholder="Entrer name service">
+      <input type="text" name="name_service" class="form-control" placeholder="Entrer le nom de Categorie">
     </div>
    
-    <div class="form-group col-md-6">
+    <!-- <div class="form-group col-md-6">
       <label >price service</label>
       <input type="text" name="price_service" class="form-control" placeholder="Entrer le prix service">
-    </div>
+    </div> -->
   </div>
   <button type="submit"  name="send" class="btn btn-outline-danger btn-lg d-block mx-auto ">ajouté</button>
 </form> 

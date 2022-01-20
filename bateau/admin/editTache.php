@@ -83,46 +83,22 @@ require_once('../includes/header.php');
 <input type="hidden" value="<?php echo $_GET['id-tache'] ?>" name="id_tache" class="form-control" >
 
 <div class="form-row">
-        <input type="text" value="<?php echo $data['tache-name'] ?>" name="tache_name" class="form-control" placeholder="Entrer le nom de tache" >
-</div>
+   <div class="form-group col-md-6">
+     <label >nom de tache</label>
+      <input type="text" value="<?php echo $data['tache-name'] ?>" name="tache_name" class="form-control" placeholder="Entrer le nom de tache">
+    </div>
 
-    <div class="form-row">
-        <div class="from-group col-md-6">
-        <label >les Mission</label>
-        <select name="id_mission" class="form-control">
+    <input type="hidden" value="<?php echo $_GET['id-mission']?>" name="id_mission" class="form-control">
 
-        <?php if($resMission) {
-
-        foreach($resMission as $rowM){ 
-
-        if( $rowM['id-mission'] == $data['id-mission']){
-            
-            
-        ?> 
-            
-        <option value="<?php echo $rowM['id-mission'];?>" selected ><?php echo $rowM['id-mission'];?></option>
-
-        <?php
-
-
-        }else{
-        ?> 
-
-        <option value="<?php echo $rowM['id-mission'];?>" ><?php echo $rowM['id-mission'];?></option>
-
-        <?php } } }?>
-        </select>
-        </div>
-        <div class="form-group col-md-6">
-
-      <label >les Services</label>
-      <select name="id_service" class="form-control">
+    <div class="form-group col-md-6">
+     <label >Categorie</label>
+      <select name="category" class="form-control">
 
         <?php if($resService) {
 
         foreach($resService as $row){ 
 
-        if( $row['id-service'] == $data['id-service']){
+        if( $row['id-service'] == $data['category']){
             // $rub = $row['id-sup'];
             
         ?> 
@@ -139,7 +115,20 @@ require_once('../includes/header.php');
 
         <?php } } }?>
         </select>
-    </div>
+  </div>
+  
+</div>
+
+    <div class="form-row">
+        <div class="from-group col-md-6">
+        <label >Prix</label>
+        <input type="text" value="<?php echo $data['price'] ?>" name="price" class="form-control" placeholder="Entrer le nom de tache">
+        </div>
+        <div class="from-group col-md-6">
+        <label >Quantité</label>
+        <input type="number" value="<?php echo $data['quantite'] ?>" name="qte" class="form-control" min="1">
+        </div>
+        
     </div>    
 
   <div class="form-row">
@@ -201,12 +190,28 @@ require_once('../includes/header.php');
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label >Date start</label>
-      <input type="date" name="date_start" value="<?php if(isset($data)){echo $data['date-start'];} ?>" class="form-control" >
+    <label >Prime</label>
+    <select name="prime" class="form-control">
+      <option value = "<?php echo $data['prime']?>"> <?php echo $data['prime'];?></option>
+
+      <?php 
+      if($data['prime'] == "oui"){
+       ?> 
+        <option value="non">Non</option>
+
+       <?php } 
+       else{
+       ?> 
+       <option value="oui">Oui</option>
+
+      <?php } ?>
+          
+    </select>
     </div>
+
     <div class="form-group col-md-6">
-      <label >date End</label>
-      <input type="date" name="date_end" value="<?php if(isset($data)){echo $data['date-end'];} ?>" class="form-control" >
+      <label >date</label>
+      <input type="date" name="date" value="<?php echo $data['date']?>" class="form-control" >
     </div>
   </div>
  

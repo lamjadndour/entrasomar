@@ -82,21 +82,10 @@ require_once('../includes/header.php');
                     
 <h3 class="text-center mb-5 bien"> Ajouter Mission  </h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="isnertPatient " >        
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label >status name</label>
-      <select name="status_name" class="form-control">
-       <option selected="true" disabled="disabled" value="" >select Status ...</option>
-       <option value="Progress">Progress</option>
-       <option value="Done">Done</option>
-      
-    </select>
-    </div>
 
-    <div class="form-group col-md-6">
-      <label >id Boat</label>
+    <div class="form-group">
+      <label >le nom de Bateau</label>
 
-      
       <select name="id_boat" class="form-control">
        <option selected="true" disabled="disabled" value="" >select boat ...</option>
 
@@ -110,21 +99,7 @@ require_once('../includes/header.php');
   } 
   ?>
     </select> 
-   </div>
-  
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label >Date Start</label>
-      <input type="date" name="date_start" class="form-control" >
-    </div>
-    <div class="form-group col-md-6">
-      <label >Date End</label>
-      <input type="date" name="date_end" class="form-control" >
-    </div>
-  </div>
- 
+   </div> 
   
   <button type="submit"  name="send" class="btn btn-outline-danger btn-lg d-block mx-auto ">ajouté</button>
 </form> 

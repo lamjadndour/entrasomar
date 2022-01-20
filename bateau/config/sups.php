@@ -21,7 +21,7 @@ class Suprv {
         // $capitane_name = $_POST['capitane_name'];
         // $type = $_POST['type'];
         // $capitane_phone = $_POST['capitane_phone'];
-        $date = $_POST['date'];
+        $date = date('Y-m-d H:i:s');
 
 
       if(empty($name_sup) && empty($phone_sup) & empty($date) ){
@@ -36,40 +36,18 @@ class Suprv {
               header("Location:addSup.php?error=$error");
 
        }
-    //    elseif(empty($name_boat)){
-    //      $error= "Entrer le nom de bateau";
-    //      header("Location:addBoat.php?error=$error");
-
-    //  }elseif(empty($capitane_name)){
-    //   $error= "Entrer le nom de capitane";
-    //   header("Location:addBoat.php?error=$error");
-
-    //  }elseif(empty($type)){
-    //   $error= "entrer type";
-    //   header("Location:addBoat.php?error=$error");
-
-    //  }elseif(empty($capitane_phone)){
-    //   $error= "entrer tlf de capitane";
-    //   header("Location:addBoat.php?error=$error");
-
-    // }
-    elseif(empty($date)){
-      $error= "Entrer la date";
-      header("Location:addSup.php?error=$error");
-
-    } else{
+       
+       else{
             
          $query = $db->connection->prepare("INSERT INTO `sup` (`id-sup`, `name-sup`, `phone-sup`, `date`) VALUES (NULL,?,?,?)");
          $stm = $query->execute(array($name_sup,$phone_sup,$date));
-        // $query = $db->connection->prepare("INSERT INTO `sup` (`id-sup`, `name-sup`, `phone-sup`) VALUES (NULL,?,?)");
-        // $stm = $query->execute(array($name_sup,$phone_sup));
-        if($stm){
-          $error= "Save it";
-                header("Location:addSup.php?error=$error");
+          if($stm){
+          $error= "success";
+                header("Location:showSup.php?error=$error");
                 exit();
          }else{
           $error= "not insert success";
-          header("Location:addSup.php?error=$error");
+          header("Location:showSup.php?error=$error");
           exit();
          } 
 

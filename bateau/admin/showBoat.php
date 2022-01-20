@@ -1,6 +1,7 @@
 <?php
 
 require_once('../config/boats.php');
+require_once('../config/sups.php');
 
 
 
@@ -50,13 +51,10 @@ $totoalPages = ceil($allRecrods / $limit);
 $prev = $page - 1;
 $next = $page + 1;
 
+
+$sup = new Suprv();
+$dataSup = $sup->displayAllSups();
 ?>
-
-
-
-
-
-
 
 
 <!doctype html>
@@ -68,6 +66,30 @@ require_once('../includes/header.php');
 
             <main class="dash-content">
                 <div class="container-fluid">
+
+                <?php
+                if(isset($_GET["error"])){
+                    $error =$_GET["error"];
+                        if($error == "success"){
+                            echo "<div class='alert alert-success alert-dismissible fade show messages' role='alert'>
+                            <span>The operation completed successfully </span>  
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                    </button>
+                    </div>";
+                        }else{
+
+                            echo "<div class='alert alert-danger alert-dismissible fade show messages' role='alert'>
+                            <span>The operation was not completed successfully</span>  
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                    </button>
+                    </div>"; }
+      
+                }
+                
+                ?>
+                
                                  
                 <h3 class="text-center mb-5 bien">Afficher les bateaux</h3>
 
@@ -92,12 +114,14 @@ require_once('../includes/header.php');
             <thead>
                 <tr class="table-success">
                 <tr class="table-success">
-                <th scope="col">Serie Bateau</th>
-                <th scope="col">Id Mokabil</th>
-                <th scope="col">Bateau</th>
-                <th scope="col">Capitane</th>
-                <th scope="col">type</th>
-                <th scope="col">N° capitane</th>
+                
+                <th scope="col">nom representent</th>
+                <th scope="col">nom Bateau</th>
+                <th scope="col">nom Capitane</th>
+                <th scope="col">téléphone capitane</th>
+                <th scope="col">Mecanisien</th>
+                <th scope="col">téléphone mecanisien</th>
+                <th scope="col">type de Bateau</th>
                 <th scope="col">La Date</th>
                 <th scope="col">Action</th>
                 </tr>
@@ -105,12 +129,25 @@ require_once('../includes/header.php');
             <tbody>
                 <?php foreach($authors as $row): ?>
                 <tr>
-                <td><?php echo $row['serie-boat']  ?></td>
-                <td><?php echo $row['id-sup']  ?></td>
+              
+               
+               
+                <?php if($dataSup) {
+                    foreach($dataSup as $rowSup){ 
+                        if($rowSup['id-sup'] == $row['id-sup']){
+                        ?> 
+                             <td><?php echo $rowSup['name-sup'];?></td>
+                        <?php
+                        }
+                    ?> 
+
+                    <?php } }?>
                 <td><?php echo $row['name-boat']  ?></td>
                 <td><?php echo $row['name-capitane-boat']  ?></td>
-                <td><?php echo $row['type-boat']  ?></td>
                 <td><?php echo $row['capitane-phone-boat']  ?></td>
+                <td><?php echo $row['mecanisien-name']  ?></td>
+                <td><?php echo $row['phone-mecanisien']  ?></td>
+                <td><?php echo $row['type-boat']  ?></td>
                 <td><?php echo $row['date']  ?></td>
                 <td> <button class="btn btn-success mx-auto"><a href="editBoat.php?id-boat=<?php echo $row['id-boat'] ?>">Modifier</a></button>
                 <button type='button' class="btn btn-danger mx-auto" ><a onclick="suppr(event)" data-toggle="modal" data-target="#exampleModal" class='<?php echo $row['id-boat'] ?>' >supprimer</a></button>

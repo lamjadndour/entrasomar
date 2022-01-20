@@ -21,7 +21,7 @@ if(!isset($_SESSION["admin"] )){
 
 }
 
-
+$total_price = 0;
 $percentage = 0;
 $remise = 0;
 $rest_price = 0;
@@ -97,7 +97,7 @@ require_once('../includes/header.php');
                         
                     </div>
                     <!-- S TABLE  -->
-                    <table class="table table-bordered">
+                    <!-- <table class="table table-bordered">
                         <thead>
                             <tr>
                             <th scope="col"><center>QT</center></th>
@@ -108,9 +108,9 @@ require_once('../includes/header.php');
                         </thead>
                         <tbody>
                             <tr>
-                                <th rowspan="0"><center>1</center></th>
+                                <th><center>1</center></th>
                                 
-                                <td rowspan="1" style="border-bottom-color: white;">
+                                <td style="border-bottom-color: white;">
                                     <?php if($dataTache) {
 
                                     foreach($dataTache as $rowTache){ 
@@ -119,8 +119,8 @@ require_once('../includes/header.php');
                                     <div>- <?php echo $rowTache['tache-name'] ?></div>
                                     <?php } } ?>
                                     </td>
-                                <td ><?php echo $row['remise'];?> </td>
-                                <td ><?php echo $row['remise'];?> </td>
+                                <td ><?php echo $rowTache['price'];?> </td>
+                                <td ><?php echo $rowTache['price'];?> </td>
                             </tr>
                             
                             <tr>
@@ -130,7 +130,44 @@ require_once('../includes/header.php');
                             </tr>
                         </tbody>
                         <?php } ?>
+                    </table> -->
+
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">QT</th>
+                        <th scope="col">DESIGNATION</th>
+                        <th scope="col">P.U</th>
+                        <th scope="col">P.T</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <?php if($dataTache) {
+
+                            foreach($dataTache as $rowTache){ 
+                            ?> 
+                            <tr>
+                            <th><?php echo $rowTache['quantite'] ?></th>
+                            <td><?php echo $rowTache['tache-name'] ?></td>
+                            <td><?php echo $rowTache['price'] ?></td>
+                        <td><?php 
+                                $priceQte = $rowTache['price'] * $rowTache['quantite'];
+                                $total_price += $priceQte;
+                                echo $priceQte;
+                            ?>
+                        </td>
+                            </tr>
+                            <?php } } ?>
+
+                            <tr>
+                        <th scope="col" colspan="2"></th>
+                        <th scope="col">TOTALE</th>
+                        <th scope="col"><?php echo $total_price ?> </th>
+                        </tr>
+                    </tbody>
                     </table>
+
                     <!-- E TABLE -->
                     <div>
                         <h5 style="-webkit-text-decoration-line: underline;text-decoration-line: underline;">Arrêtée la présente facture à la somme de :</h5>
@@ -138,14 +175,14 @@ require_once('../includes/header.php');
                     </div>
                     </br></br></br></br>
                     <div>
-                        <h5 style="margin-left:30em;">Signature :</h5>
+                        <h5 style="margin-left:30em;">Signature :</h5>  
                     </div>
                     </br></br>
                     </br></br>
                     </br></br>
                     <!-- </br></br> -->
                     <hr/>
-                    <div>
+                    <div class="Infos" style="position: absolute;bottom: 0;">
                         <p style="margin-bottom: 0rem;font-size: 11px;" >140 Avenue Mohammed V AL Marsa Laayoune GSM: 06 62 27 43 44/06 68 72 57 72 -Fax: 05 28 99 85 48 BP:450 E-mail: entrasomar@gmail.com</p  >
                         <p style="margin-bottom: 0rem;font-size: 11px;"  >Capital: 100 000 00. R.C: 4933 Laayoune. CNSS: 4269355 - IF, 20703333- ICE: 001941883000084 - B.P: 143 430 21211 5992724 0014 95</p  >
                     </div>

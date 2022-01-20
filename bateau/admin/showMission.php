@@ -109,7 +109,7 @@ require_once('../includes/header.php');
             <thead>
                 <tr class="table-success">
                 <tr class="table-success">
-                <th scope="col">Série Boat</th>
+                <th scope="col">nom du bateau</th>
                 <th scope="col">Status Name</th>
                 <th scope="col">Date Start</th>
                 <th scope="col">Date End</th>
@@ -126,7 +126,7 @@ require_once('../includes/header.php');
                 if($rowBoat['id-boat'] == $row['id-boat']){
                  
                 ?> 
-                    <td><?php echo $rowBoat['serie-boat']  ?></td>
+                    <td><?php echo $rowBoat['name-boat']  ?></td>
                 <?php
 
                 }
@@ -138,6 +138,8 @@ require_once('../includes/header.php');
                 <td><?php echo $row['date-end']  ?></td>
                 <td> <button class="btn btn-success mx-auto"><a href="editMission.php?id-mission=<?php echo $row['id-mission'] ?>">Modifier</a></button>
                 <button type='button' class="btn btn-danger mx-auto"><a onclick="supprMiss(event)" class='<?php echo $row['id-mission'] ?>' data-toggle="modal" data-target="#exampleModal">supprimer</a></button>
+                <button class="btn btn-info mx-auto"><a href="showTache.php?id-mission=<?php echo $row['id-mission']?>&id-boat=<?php echo $row['id-boat']?> "> Details</a></button>
+                <button class="btn btn-warning mx-auto"><a href="showFacture.php?id-mission=<?php echo $row['id-mission']?>"> facture</a></button>
                 </td>
 
                 </tr>

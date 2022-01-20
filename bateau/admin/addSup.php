@@ -98,49 +98,12 @@ require_once('../includes/header.php');
       <input type="text" name="phone_sup" class="form-control" placeholder="Entrer Phone Superviseur">
     </div>
 
-    <!-- <div class="form-group col-md-6">
-      <label >id mokabil</label>
-
-      <select name="id_supp" class="form-control">
-        <option selected="true" disabled="disabled" value="" >select mokabil ...</option> -->
-
-        <?php 
-          // if( $data){
-          //   foreach($data as $row){ 
-          //   unset($id, $name);
-          //   $id = $row['id-sup'];
-          //   $name = $row['name-sup']; 
-          //   echo '<option value="'.$id.'">'.$name.'</option>';
-          //   }
-          // } 
-        ?>
-      <!-- </select> 
-   </div> -->
   </div>
-  <!-- <div class="form-row">
-    <div class="form-group col-md-6">
-      <label >Nom bateau</label>
-      <input type="text" name="name_boat" class="form-control" placeholder="Entrer le Nom bateau">
-    </div>
-    <div class="form-group col-md-6">
-      <label >Nom capitane</label>
-      <input type="text" name="capitane_name" class="form-control" placeholder="Entrer le Nom capitane">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label >type</label>
-      <input type="text" name="type" class="form-control" >
-    </div>
-    <div class="form-group col-md-6">
-      <label >N° capitane</label>
-      <input type="text" name="capitane_phone" class="form-control" placeholder="Entrer N° capitane" >
-    </div>
-  </div> -->
-  <div class="form-group">
+
+  <!-- <div class="form-group">
     <label>Date</label>
     <input type="date" name="date" class="form-control" >
-     </div>
+     </div> -->
   
   <button type="submit"  name="send" class="btn btn-outline-danger btn-lg d-block mx-auto ">ajouté</button>
 </form> 

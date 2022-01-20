@@ -15,10 +15,10 @@ class Mission {
 
       if(isset($_POST['send'])){
       
-        $status_name = $_POST['status_name'];
+        $status_name = 'Progress';
         $id_boat = $_POST['id_boat'];
-        $date_start = $_POST['date_start'];
-        $date_end = $_POST['date_end'];
+        $date_start = date('Y-m-d H:i:s');
+        $date_end = date('Y-m-d H:i:s');
         
       if(empty($status_name) && empty($id_boat) && empty($name_boat) && empty($date_start) && empty($date_end) ){
       $error= "Replir toutes les champs";
@@ -31,14 +31,15 @@ class Mission {
               $error= "Entrer id de boat";
               header("Location:addMission.php?error=$error");
 
-       }elseif(empty($date_start)){
-         $error= "Entrer le nom de bateau";
-         header("Location:addMission.php?error=$error");
+       }
+   //     elseif(empty($date_start)){
+   //       $error= "Entrer le nom de bateau";
+   //       header("Location:addMission.php?error=$error");
 
-     }elseif(empty($date_end)){
-      $error= "Entrer le nom de capitane";
-      header("Location:addMission.php?error=$error");
-     }
+   //   }elseif(empty($date_end)){
+   //    $error= "Entrer le nom de capitane";
+   //    header("Location:addMission.php?error=$error");
+   //   }
 
      
       else{
@@ -47,11 +48,11 @@ class Mission {
          $stm = $query->execute(array($status_name ,$id_boat, $date_start, $date_end));
          if($stm){
           $error= "success";
-            header("Location:addMission.php?error=$error");
+            header("Location:showMission.php?error=$error");
             exit();
          }else{
           $error= "not insert success";
-          header("Location:addMission.php?error=$error");
+          header("Location:showMission.php?error=$error");
           exit();
          } 
          

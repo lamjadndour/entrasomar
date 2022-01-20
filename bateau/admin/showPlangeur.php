@@ -92,7 +92,7 @@ require_once('../includes/header.php');
              <h3 class="text-center mb-5 bien">Afficher les plangeurs</h3>
             
         <div class="d-flex flex-row-reverse bd-highlight mb-3">
-            <form action="showBoat.php" method="post">
+            <form action="showPlangeur.php" method="post">
                 <select name="records-limit" id="records-limit" class="custom-select">
                     <option disabled selected>Records Limit</option>
                     <?php foreach([10,20,30,40,50,60,70,80,90,100,1000] as $limit) : ?>
@@ -126,6 +126,7 @@ require_once('../includes/header.php');
             
                 <td> <button class="btn btn-success mx-auto"><a href="editPlangeur.php?id-plangeur=<?php echo $row['id-plangeur'] ?>">Modifier</a></button>
                 <button type='button' class="btn btn-danger mx-auto" ><a onclick="supprPlang(event)" class='<?php echo $row['id-plangeur'] ?>' data-toggle="modal" data-target="#exampleModal">supprimer</a></button>
+                <button class="btn btn-info mx-auto"><a href="showTachPlang.php?id-plangeur=<?php echo $row['id-plangeur'] ?>">Taches</a></button>
                 </td>
 
                 </tr>
@@ -153,7 +154,6 @@ require_once('../includes/header.php');
                 </li>
             </ul>
         </nav>
-
 
 
 

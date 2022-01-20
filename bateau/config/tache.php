@@ -17,15 +17,19 @@ class Tache {
 
         $tache_name = $_POST['tache_name'];
         $id_mission = $_POST['id_mission'];
-        $id_service = $_POST['id_service'];
+        $category = $_POST['category'];
         $id_plangeur = $_POST['id_plangeur'];
+        $price = $_POST['price'];
+        $qte = $_POST['qte'];
         $status_tache = "Progress";
-        $date_start = $_POST['date_start'];
-        $date_end = $_POST['date_end'];
+        $prime = $_POST['prime'];
+        $date = $_POST['date'];
+        
+      //   $date_end = $_POST['date_end'];
      
         
 
-      if(empty($tache_name) && empty($id_service) && empty($id_plangeur) && empty($status_tache) && empty($date_start) & empty($date_end) ){
+      if(empty($tache_name) && empty($id_service) && empty($id_plangeur) && empty($status_tache) && empty($prime) & empty($date) ){
       $error= "Replir toutes les champs";
       header("Location:addTache.php?error=$error&id-mission=$id_mission");
 
@@ -37,7 +41,7 @@ class Tache {
               $error= "Entrer id de mission";
               header("Location:addTache.php?error=$error&id-mission=$id_mission");
 
-       }elseif(empty($id_service)){
+       }elseif(empty($category)){
          $error= "Entrer id de service";
          header("Location:addTache.php?error=$error&id-mission=$id_mission");
 
@@ -45,22 +49,24 @@ class Tache {
         $error= "Entrer le nom de capitane";
         header("Location:addTache.php?error=$error&id-mission=$id_mission");
 
-        }elseif(empty($status_tache)){
+        }
+        elseif(empty($status_tache)){
         $error= "Entrer status de tache";
         header("Location:addTache.php?error=$error&id-mission=$id_mission");
-
-        }elseif(empty($date_start)){
-        $error= "entrer la date de départ ";
+        }
+        elseif(empty($prime)){
+        $error= "Entrer prime (oui ou non)";
         header("Location:addTache.php?error=$error&id-mission=$id_mission");
 
-        }elseif(empty($date_end)){
-        $error= "Entrer la date de d'expiration";
+        }elseif(empty($date)){
+        $error= "entrer la date ";
         header("Location:addTache.php?error=$error&id-mission=$id_mission");
-
-        } else{
+      }
+      
+    else{
             
-         $query = $db->connection->prepare("INSERT INTO `tache` (`id-tache`,`tache-name`,`id-mission`, `id-service`, `id-plangeur`, `status-tache`, `date-start`, `date-end`) VALUES (NULL,?,?,?,?,?,?,?)");
-         $stm = $query->execute(array($tache_name, $id_mission,$id_service,$id_plangeur,$status_tache,$date_start,$date_end));
+         $query = $db->connection->prepare("INSERT INTO `tache` (`id-tache`,`tache-name`,`id-mission`, `category`, `id-plangeur`, `price`, `quantite`, `status-tache`, `prime`, `date`) VALUES (NULL,?,?,?,?,?,?,?,?,?)");
+         $stm = $query->execute(array($tache_name, $id_mission,$category,$id_plangeur,$price, $qte, $status_tache,$prime,$date));
          if($stm){
           $error= "Save it";
                 header("Location:showTache.php?error=$error&id-mission=$id_mission");
@@ -83,6 +89,17 @@ class Tache {
          return $data = $stmt->fetchAll();
     
    }
+
+
+   function displayTachePlang(){
+
+      if(isset($_GET['id-plangeur'])){
+      $id_plangeur = $_GET['id-plangeur'];
+      $stmt = $db->connection->prepare("SELECT * FROM tache WHERE `id-plangeur` = ? ");
+      $stmt->execute(array($id_plangeur));
+      return $data = $stmt->fetchAll();
+      }
+}
 
 
 function displayTacheByMission(){
@@ -117,23 +134,26 @@ function displayTacheByMission(){
       global $db;
       
      if(isset($_POST['send'])){
-        $tache_name = $_POST['tache_name'];
-        $id_mission = $_POST['id_mission'];
-        $id_service = $_POST['id_service'];
-        $id_plangeur = $_POST['id_plangeur'];
-        $status_tache = $_POST['status_tache'];
-        $date_start = $_POST['date_start'];
-        $date_end = $_POST['date_end'];
+      $tache_name = $_POST['tache_name'];
+      $id_mission = $_POST['id_mission'];
+      $category = $_POST['category'];
+      $id_plangeur = $_POST['id_plangeur'];
+      $price = $_POST['price'];
+      $qte = $_POST['qte'];
+      $status_tache = $_POST['status_tache'];
+      $prime = $_POST['prime'];
+      $date = $_POST['date'];
+
 
         $id_tache = $_POST['id_tache'];
-         $stmt = $db->connection->prepare("UPDATE `tache` SET `tache-name`= ?, `id-mission`= ?,`id-service`= ?,`id-plangeur`= ?,`status-tache`= ?,`date-start`= ? ,`date-end`= ? WHERE `tache`.`id-tache`= ? ");
-          $res =$stmt->execute(array($tache_name, $id_mission, $id_service, $id_plangeur, $status_tache, $date_start, $date_end,$id_tache));
+         $stmt = $db->connection->prepare("UPDATE `tache` SET `tache-name`= ?, `id-mission`= ?,`category`= ?,`id-plangeur`= ?, `price` = ? ,`quantite` = ?, `status-tache`= ?,`prime`= ? ,`date`= ? WHERE `tache`.`id-tache`= ? ");
+          $res =$stmt->execute(array($tache_name, $id_mission, $category, $id_plangeur, $price, $qte, $status_tache, $prime, $date, $id_tache));
          if($res){
           $error = "edit success";
-           header("location: editTache.php?error=$error&id-tache=$id_tache");
+           header("location: editTache.php?error=$error&id-tache=$id_tache&id-mission=$id_mission");
          }else{
           $error = "not success";
-          header("location: editTache.php?error=$error&id-tache=$id_tache");
+          header("location: editTache.php?error=$error&id-tache=$id_tache&id-mission=$id_mission");
          }
      }
 }

@@ -45,8 +45,6 @@ require_once('../includes/header.php');
     <div class="container-fluid">
 <!--------------------------------------- START print message ---------------------------------->
 
-
-
 <div class="container-fluid">
 <!--------------------------------------- START print message ---------------------------------->
 
@@ -93,19 +91,15 @@ require_once('../includes/header.php');
 <h3 class="text-center mb-5 bien"> Ajouter Tache  </h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="isnertPatient " >  
 <div class="form-row">
-    
+   <div class="form-group col-md-6">
       <label >tache name</label>
       <input type="text" name="tache_name" class="form-control" placeholder="Entrer le nom de tache">
- 
-  </div>
-
-  <div class="form-row">
-  <input type="hidden" value="<?php echo $_GET['id-mission']; ?>" name="id_mission" class="form-control" >
-
-  <div class="form-group col-md-6">
-      <label >id service</label>
-      <select name="id_service" class="form-control">
-       <option selected="true" disabled="disabled" value="" >select service ...</option>
+    </div>
+    <input type="hidden" value="<?php echo $_GET['id-mission']; ?>" name="id_mission" class="form-control" >
+    <div class="form-group col-md-6">
+    <label >Categorie</label>
+      <select name="category" class="form-control">
+       <option selected="true" disabled="disabled" value="" >select categrie ...</option>
 
        
     <?php if( $dataService){
@@ -118,8 +112,11 @@ require_once('../includes/header.php');
        } 
     ?>
     </select> 
-   </div>
-   
+  </div>
+  </div>
+
+  <div class="form-row">
+
   <div class="form-group col-md-6">
       <label >id plangeur</label>
       <select name="id_plangeur" class="form-control">
@@ -134,20 +131,33 @@ require_once('../includes/header.php');
         }
        } 
     ?>
-        
-    
     </select> 
     </div>  
+    <div class="form-group col-md-6">
+      <label >Prix</label>
+      <input type="text" name="price" class="form-control" placeholder="Entrer le prix categorie">
+   </div>
   </div>
+
+  <div class="form-group">
+      <label >Prix</label>
+      <input type="number" name="qte" class="form-control" min="1" value="1">
+   </div>
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label >Date Start</label>
-      <input type="date" name="date_start" class="form-control" >
+      <label >Prime</label>
+      <select name="prime" class="form-control">
+      <option selected="true" disabled="disabled" value="" >select Prime ...</option>
+       <option value="non" >Non</option>
+       <option value="oui">Oui</option>
+
+
+      </select>
     </div>
     <div class="form-group col-md-6">
       <label >Date End</label>
-      <input type="date" name="date_end" class="form-control" >
+      <input type="date" name="date" class="form-control" value="<?= date('Y-m-d', time());?>">
     </div>
   </div>
  
@@ -156,14 +166,9 @@ require_once('../includes/header.php');
 </form> 
 
 
-
-
-
      <!--------------------------------------- END from ---------------------------------->
-
-
-                </div>
-            </main>
+    </div>
+        </main>
 
            <!--------------------------------------- START Container---------------------------------->
 
@@ -173,5 +178,4 @@ require_once('../includes/header.php');
     require_once('../includes/script.php');
    ?>
 </body>
-
 </html>

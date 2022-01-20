@@ -69,11 +69,11 @@ $next = $page + 1;
 <?php
 require_once('../includes/header.php');
  ?>
-                                     <!--------------------------------------- START Container---------------------------------->
+  <!--------------------------------------- START Container---------------------------------->
 
             <main class="dash-content">
                 <div class="container-fluid">
-                <h3 class="text-center mb-5 bien">Afficher les services</h3>   
+                <h3 class="text-center mb-5 bien">Afficher les Categorie</h3>   
                 <div class="d-flex flex-row-reverse bd-highlight mb-3">
             <form action="showBoat.php" method="post">
                 <select name="records-limit" id="records-limit" class="custom-select">
@@ -90,12 +90,12 @@ require_once('../includes/header.php');
         </div>
 
         <!-- Datatable -->
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter nom de service ">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter nom de Categorie ">
         <table class="table table-bordered mb-5" id="myTable">
         <thead>
                 <tr class="table-success">
-                <th scope="col">name service</th>
-                <th scope="col">price service</th>
+                <th scope="col">le nom de Categorie</th>
+                <!-- <th scope="col">price service</th> -->
                 <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -103,7 +103,7 @@ require_once('../includes/header.php');
                 <?php foreach($authors as $row): ?>
                 <tr>
                 <td><?php echo $row['name-service']  ?></td>
-                <td><?php echo $row['price-service']  ?></td>
+                <!-- <td><?php echo $row['price-service']  ?></td> -->
                 <td> <button class="btn btn-success mx-auto"><a href="editService.php?id-service=<?php echo $row['id-service'] ?>">Modifier</a></button>
                 <button type='button' class="btn btn-danger mx-auto" ><a onclick="supprServ(event)" class='<?php echo $row['id-service'] ?>' data-toggle="modal" data-target="#exampleModal">supprimer</a></button>
                 </tr>

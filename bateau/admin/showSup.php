@@ -70,6 +70,29 @@ require_once('../includes/header.php');
             <main class="dash-content">
                 <div class="container-fluid">
 
+                <?php
+                if(isset($_GET["error"])){
+                    $error =$_GET["error"];
+                        if($error == "success"){
+                            echo "<div class='alert alert-success alert-dismissible fade show messages' role='alert'>
+                            <span>The operation completed successfully </span>  
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                    </button>
+                    </div>";
+                        }else{
+
+                            echo "<div class='alert alert-danger alert-dismissible fade show messages' role='alert'>
+                            <span>The operation was not completed successfully</span>  
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                    </button>
+                    </div>"; }
+      
+                }
+                
+                ?>
+
                 <h3 class="text-center mb-5 bien">Show Superviseures</h3>
                                  
              
